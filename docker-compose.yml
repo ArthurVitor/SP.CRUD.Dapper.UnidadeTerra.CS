@@ -1,0 +1,26 @@
+﻿version: '3.8'
+
+services:
+  sp.crud.dapper.unidadeterra.cs:
+    image: sp.crud.dapper.unidadeterra.cs
+    build:
+      context: .
+      dockerfile: SP.CRUD.Dapper.UnidadeTerra.CS/Dockerfile
+    environment:
+      - ConnectionStrings__Default=Server=sqlserver;Database=ShopDB;User=sa;Password=Your_password123;
+    depends_on:
+      - sqlserver
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:latest
+    environment:
+      SA_PASSWORD: "Your_password123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1436:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  sqlserver_data:

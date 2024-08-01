@@ -1,0 +1,22 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.8"
+services:
+  sp.crud.dapper.unidadeterra.cs:
+    build:
+      context: "C:\\Users\\arthu\\Documents\\Projetos\\SP.CRUD.Dapper.UnidadeTerra.CS"
+      dockerfile: "SP.CRUD.Dapper.UnidadeTerra.CS/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/SP.CRUD.Dapper.UnidadeTerra.CS.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "sp.crud.dapper.unidadeterra.cs:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\arthu\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\arthu\\Documents\\Projetos\\SP.CRUD.Dapper.UnidadeTerra.CS\\SP.CRUD.Dapper.UnidadeTerra.CS:/app:rw"
+    - "C:\\Users\\arthu\\Documents\\Projetos\\SP.CRUD.Dapper.UnidadeTerra.CS:/src:rw"
+    working_dir: "/app"
